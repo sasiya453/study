@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: srs-backend
+    env: node
+    plan: free
+    buildCommand: "cd backend && npm ci"
+    startCommand: "cd backend && node index.js"
+    autoDeploy: true
+    region: oregon
+    disk:
+      name: db
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: PORT
+        value: 4000
+      - key: DATABASE_URL
+        value: /data/data.sqlite
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGIN
+        # Replace with your GitHub Pages URL when known, e.g. https://username.github.io/repo
+        value: http://localhost:5173
