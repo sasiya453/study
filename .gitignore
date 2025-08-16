@@ -1,0 +1,14 @@
+# dependencies
+frontend/node_modules
+backend/node_modules
+
+# env files
+.env
+frontend/.env
+backend/.env
+
+# build output
+frontend/dist
+
+# sqlite database (if you ran locally)
+backend/data.sqlite
